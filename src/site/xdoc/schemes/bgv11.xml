@@ -1,0 +1,64 @@
+<!DOCTYPE document PUBLIC
+        "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+        "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+    <properties>
+        <title>Java Lattice-Based Cryptography Library : Schemes - Fully Homomorphic Encryption without Bootstrapping
+        </title>
+        <author email="decaro@dia.unisa.it">Angelo De Caro</author>
+    </properties>
+
+    <body>
+        <section name="Fully Homomorphic Encryption without Bootstrapping">
+
+            <subsection name="Authors">
+                Zvika Brakerski and Craig Gentry and Vinod Vaikuntanathan
+            </subsection>
+
+            <subsection name="Abstract">
+                Abstract: We present a radically new approach to fully homomorphic encryption (FHE) that dramatically
+                improves performance and bases security on weaker assumptions. A central conceptual contribution in our
+                work is a new way of constructing leveled fully homomorphic encryption schemes (capable of evaluating
+                arbitrary polynomial-size circuits), {\em without Gentry's bootstrapping procedure}.
+                <br/>
+                <br/>
+                Specifically, we offer a choice of FHE schemes based on the learning with error (LWE) or ring-LWE (RLWE)
+                problems that have $2^\secparam$ security against known attacks. For RLWE, we have:
+                <br/>
+                <br/>
+                1. A leveled FHE scheme that can evaluate $L$-level arithmetic circuits with $\tilde{O}(\secparam \cdot
+                L^3)$ per-gate computation -- i.e., computation {\em quasi-linear} in the security parameter. Security
+                is based on RLWE for an approximation factor exponential in $L$. This construction does not use the
+                bootstrapping procedure.
+                <br/>
+                <br/>
+                2. A leveled FHE scheme that uses bootstrapping {\em as an optimization}, where the per-gate computation
+                (which includes the bootstrapping procedure) is $\tilde{O}(\secparam^2)$, {\em independent of $L$}.
+                Security is based on the hardness of RLWE for {\em quasi-polynomial} factors (as opposed to the
+                sub-exponential factors needed in previous schemes).
+                <br/>
+                <br/>
+                We obtain similar results for LWE, but with worse performance. We introduce a number of further
+                optimizations to our schemes. As an example, for circuits of large width -- e.g., where a constant
+                fraction of levels have width at least $\secparam$ -- we can reduce the per-gate computation of the
+                bootstrapped version to $\tilde{O}(\secparam)$, independent of $L$, by {\em batching the bootstrapping
+                operation}. Previous FHE schemes all required $\tilde{\Omega}(\secparam^{3.5})$ computation per gate.
+                <br/>
+                <br/>
+                At the core of our construction is a much more effective approach for managing the noise level of
+                lattice-based ciphertexts as homomorphic operations are performed, using some new techniques recently
+                introduced by Brakerski and Vaikuntanathan (FOCS 2011).
+            </subsection>
+
+            <subsection name="URL">
+                <a href="http://eprint.iacr.org/2011/277.pdf">
+                    http://eprint.iacr.org/2011/277.pdf
+                </a>
+            </subsection>
+        </section>
+
+        <section name="Usage">
+        </section>
+
+    </body>
+</document>

@@ -1,0 +1,175 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.1"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.1 http://maven.apache.org/xsd/assembly-1.1.1.xsd">
+
+    <!--<id>distro</id>-->
+
+    <formats>
+        <format>dir</format>
+        <format>zip</format>
+        <format>tar.gz</format>
+    </formats>
+
+    <includeBaseDirectory>false</includeBaseDirectory>
+
+    <moduleSets>
+        <moduleSet>
+            <includes>
+                <include>it.unisa.dia.gas:jpbc-pbc</include>
+                <include>it.unisa.dia.gas:jpbc-crypto</include>
+            </includes>
+            <binaries>
+                <outputDirectory>jars</outputDirectory>
+                <includeDependencies>true</includeDependencies>
+                <unpack>false</unpack>
+                <dependencySets>
+                    <dependencySet>
+                        <excludes>
+                            <exclude>it.unisa.dia.gas:jpbc-plaf:tests</exclude>
+                        </excludes>
+                    </dependencySet>
+                </dependencySets>
+            </binaries>
+        </moduleSet>
+
+        <moduleSet>
+            <includes>
+                <include>it.unisa.dia.gas:jpbc-api</include>
+                <include>it.unisa.dia.gas:jpbc-plaf</include>
+                <include>it.unisa.dia.gas:jpbc-pbc</include>
+                <include>it.unisa.dia.gas:jpbc-crypto</include>
+                <!--<include>it.unisa.dia.gas:jpbc-site-skin</include>-->
+            </includes>
+            <sources>
+                <fileSets>
+                    <fileSet>
+                        <outputDirectory>src</outputDirectory>
+                        <excludes>
+                            <exclude>target/**</exclude>
+                        </excludes>
+                        <directory>src</directory>
+                    </fileSet>
+                    <fileSet>
+                        <outputDirectory>.</outputDirectory>
+                        <includes>
+                            <include>pom.xml</include>
+                            <include>CMakeLists.txt</include>
+                            <include>*.iml</include>
+                            <include>Find*.cmake</include>
+                        </includes>
+                    </fileSet>
+                </fileSets>
+            </sources>
+        </moduleSet>
+    </moduleSets>
+
+    <fileSets>
+        <!--
+                <fileSet>
+                    <directory>src</directory>
+                    <outputDirectory>src</outputDirectory>
+                    <includes/>
+                </fileSet>
+        -->
+
+        <fileSet>
+            <directory>params</directory>
+            <outputDirectory>params</outputDirectory>
+            <includes/>
+        </fileSet>
+
+        <fileSet>
+            <directory>jpbc-plaf/target</directory>
+            <outputDirectory>jars/test</outputDirectory>
+            <includes>
+                <include>*tests.jar</include>
+            </includes>
+        </fileSet>
+
+        <fileSet>
+            <directory>jpbc-pbc/target</directory>
+            <outputDirectory>jars/test</outputDirectory>
+            <includes>
+                <include>*tests.jar</include>
+            </includes>
+        </fileSet>
+
+        <fileSet>
+            <directory>jpbc-crypto/target</directory>
+            <outputDirectory>jars/test</outputDirectory>
+            <includes>
+                <include>*tests.jar</include>
+            </includes>
+        </fileSet>
+
+        <fileSet>
+            <directory>jpbc-api/target</directory>
+            <outputDirectory>jars/sources</outputDirectory>
+            <includes>
+                <include>*sources.jar</include>
+            </includes>
+        </fileSet>
+
+        <fileSet>
+            <directory>jpbc-plaf/target</directory>
+            <outputDirectory>jars/sources</outputDirectory>
+            <includes>
+                <include>*sources.jar</include>
+            </includes>
+        </fileSet>
+
+        <fileSet>
+            <directory>jpbc-pbc/target</directory>
+            <outputDirectory>jars/sources</outputDirectory>
+            <includes>
+                <include>*sources.jar</include>
+            </includes>
+        </fileSet>
+
+        <fileSet>
+            <directory>jpbc-crypto/target</directory>
+            <outputDirectory>jars/sources</outputDirectory>
+            <includes>
+                <include>*sources.jar</include>
+            </includes>
+        </fileSet>
+
+        <fileSet>
+            <directory>jpbc-plaf/target</directory>
+            <outputDirectory>jars/sources</outputDirectory>
+            <includes>
+                <include>*sources.jar</include>
+            </includes>
+        </fileSet>
+
+        <fileSet>
+            <directory>license</directory>
+            <outputDirectory>license</outputDirectory>
+            <includes/>
+        </fileSet>
+    </fileSets>
+
+    <files>
+        <file>
+            <source>pom.xml</source>
+            <outputDirectory>.</outputDirectory>
+        </file>
+        <file>
+            <source>jpbc.iml</source>
+            <outputDirectory>.</outputDirectory>
+        </file>
+        <file>
+            <source>benchmark.xml</source>
+            <outputDirectory>.</outputDirectory>
+        </file>
+        <file>
+            <source>curvegen.xml</source>
+            <outputDirectory>.</outputDirectory>
+        </file>
+        <file>
+            <source>./src/main/assembly/jpbc-distro.xml</source>
+            <outputDirectory>./src/main/assembly/</outputDirectory>
+        </file>
+    </files>
+
+</assembly>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project>
+
+    <skin>
+        <groupId>it.unisa.dia.gas</groupId>
+        <artifactId>jlbc-site-skin</artifactId>
+        <version>1.0.0</version>
+    </skin>
+
+    <body>
+
+        <links>
+            <item name="jPBC" href="http://gas.dia.unisa.it/projects/jpbc/"/>
+            <!--<item name="SF Project page" href="http://sourceforge.net/projects/jpbc/"/>-->
+            <!--<item name="Piwik" href="http://sourceforge.net/apps/piwik/jpbc/index.php?module=CoreHome&amp;action=index&amp;idSite=2&amp;period=week&amp;date=today"/>-->
+        </links>
+
+        <menu name="jLBC Library">
+            <item name="Introduction" href="index.html"/>
+            <item name="Download" href="download.html"/>
+            <item name="Build HowTo" href="buildHowto.html"/>
+            <item name="Contact" href="contact.html"/>
+            <!--<item name="Benchmark" href="benchmark.html"/>-->
+            <!--<item name="Android" href="/docs/android.html"/>-->
+            <item name="Who Uses jLBC?" href="who.html"/>
+        </menu>
+
+        <menu name="Documentation">
+
+        </menu>
+
+        <menu name="Crypto">
+            <item name="Schemes" href="/schemes/schemes.html">
+                <item name="Homomorphic Encryption" href="/schemes/schemes.html#he">
+                    <item name="BGV'11" href="/schemes/bgv11.html"/>
+                    <item name="BV'11" href="/schemes/bv11b.html"/>
+                </item>
+            </item>
+        </menu>
+        
+        ${reports}
+    </body>
+
+</project>

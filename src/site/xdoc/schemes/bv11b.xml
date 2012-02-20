@@ -1,0 +1,51 @@
+<!DOCTYPE document PUBLIC
+        "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+        "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+    <properties>
+        <title>Java Lattice-Based Cryptography Library : Schemes - Fully Homomorphic Encryption from Ring-LWE and Security for Key Dependent Messages
+        </title>
+        <author email="decaro@dia.unisa.it">Angelo De Caro</author>
+    </properties>
+
+    <body>
+        <section name="Fully Homomorphic Encryption from Ring-LWE and Security for Key Dependent Messages">
+
+            <subsection name="Authors">
+                Zvika Brakerski and Vinod Vaikuntanathan
+            </subsection>
+
+            <subsection name="Abstract">
+                We present a somewhat homomorphic encryption scheme that is both very simple to describe and analyze,
+                and whose security (quantumly) reduces to the worst-case hardness of problems on ideal lat- tices. We
+                then transform it into a fully homomorphic encryption scheme using standard “squashing” and
+                “bootstrapping” techniques introduced by Gentry (STOC 2009).
+                One of the obstacles in going from “somewhat” to full homomorphism is the requirement that the somewhat
+                homomorphic scheme be circular secure, namely, the scheme can be used to securely encrypt its own se-
+                cret key. For all known somewhat homomorphic encryption schemes, this requirement was not known to be
+                achievable under any cryptographic assumption, and had to be explicitly assumed. We take a step forward
+                towards removing this additional assumption by proving that our scheme is in fact secure when encrypting
+                polynomial functions of the secret key. Our scheme is based on the ring learning with errors (RLWE)
+                assumption that was recently introduced by Lyubashevsky, Peikert and Regev (Euro- crypt 2010). The RLWE
+                assumption is reducible to worst-case problems on ideal lattices, and allows us to completely abstract
+                out the lattice in- terpretation, resulting in an extremely simple scheme. For example, our secret key
+                is s, and our public key is (a,b = as+2e), where s,a,e are all degree (n − 1) integer polynomials whose
+                coefficients are independently drawn from easy to sample distributions.
+            </subsection>
+
+            <subsection name="URL">
+                <a href="http://www.cs.toronto.edu/~vinodv/BV-Crypto2011.pdf">
+                    http://www.cs.toronto.edu/~vinodv/BV-Crypto2011.pdf
+                </a>
+                <br/>
+                <a href="http://eprint.iacr.org/2011/405.pdf">
+                    http://eprint.iacr.org/2011/405.pdf
+                </a>
+            </subsection>
+        </section>
+
+        <section name="Usage">
+        </section>
+
+    </body>
+</document>

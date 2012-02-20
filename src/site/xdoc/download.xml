@@ -1,0 +1,158 @@
+<!DOCTYPE document PUBLIC
+        "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+        "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+    <properties>
+        <title>Java Lattice-Based Cryptography Library - Download</title>
+        <author email="decaro@dia.unisa.it">Angelo De Caro</author>
+    </properties>
+
+    <body>
+        <section name="Download jLBC">
+
+            <subsection name="Releases">
+                <ul>
+                    <li>
+                        Please see our
+                        <a href="license.html">License FAQ</a>
+                        before downloading.
+                    </li>
+                </ul>
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <font style="font-weight: bold;">Package</font>
+                            </td>
+                            <td>
+                                <font style="font-weight: bold;">Version</font>
+                            </td>
+                            <td>
+                                <font style="font-weight: bold;">Release date</font>
+                            </td>
+                            <td>
+                                <font style="font-weight: bold;">Category</font>
+                            </td>
+                            <td/>
+                        </tr>
+
+                        <tr valign="top">
+                            <td>jLBC</td>
+                            <td>1.2.0</td>
+                            <td>August 2011</td>
+                            <td>Stable</td>
+                            <td>
+                                <em>
+                                    <a href="http://sourceforge.net/projects/jpbc/files/">
+                                        Download
+                                    </a>
+                                </em>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <br/>
+                <br/>
+                
+                <font style="font-weight: bold;">
+                    <a href="http://prdownloads.sourceforge.net/jpbc/?sort_by=date&amp;sort=desc">
+                        Browse all jLBC downloads
+                    </a>
+                </font>
+            </subsection>
+
+            <a name="requirements"/>
+            <subsection name="System Requirements">
+                <table>
+                    <tbody>
+                        <tr class="b">
+                            <td align="left">
+                                <b>JDK</b>
+                            </td>
+                            <td align="left">1.6 or above
+                            </td>
+                        </tr>
+                        <tr class="a">
+                            <td align="left">
+                                <b>Memory</b>
+                            </td>
+                            <td align="left">No minimum requirement</td>
+                        </tr>
+                        <tr class="b">
+                            <td align="left">
+                                <b>Disk</b>
+                            </td>
+                            <td align="left">The distro is approximately 3MB, but the core jars are approximately 0.7MB
+                            </td>
+                        </tr>
+                        <tr class="a">
+                            <td align="left">
+                                <b>Operating System</b>
+                            </td>
+                            <td align="left">No minimum requirement.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </subsection>
+
+            <a name="usage"/>
+            <subsection name="Usage">
+                <ol type="1">
+                    <li>Unzip
+                        <tt>jpbc-1.2.0.zip</tt>
+                        to the directory you wish to unzip it.
+                    </li>
+                    <li>To use jLBC add to your classpath the following jars:
+                        <ol type="1">
+                            <li>
+                                <font style="font-weight: bold;color:red"><tt>jpbc_1.2.0-api.jar</tt></font>
+                                and
+                            </li>
+
+                            <li>
+                                <font style="font-weight: bold;color:red"><tt>jpbc_1.2.0-plaf.jar</tt></font>.
+                            </li>
+                        </ol>
+                        To use the wrapper include also
+                        <ol>
+                            <li>
+                                <font style="font-weight: bold;color:green"><tt>jpbc_1.2.0-pbc.jar</tt></font>
+                                and
+                            </li>
+
+                            <li>
+                                <font style="font-weight: bold;color:green"><tt>jna-3.1.0.jar</tt></font>.
+                            </li>
+                        </ol>
+                        Remember that to use the wrapper you must compile the shared library
+                        to enable the communication between PBC and jLBC. Go
+                        <a href="./docs/pbcwrapper.html">here</a>
+                        to see how to do that.
+                    </li>
+                    <li>
+                        If you want to use the implemented 
+                        <a href="schemes/schemes.html">pairing based crypto-systems</a>
+                        include:
+                        <ol>
+                            <li>
+                                <font style="font-weight: bold;color:green"><tt>jpbc_1.2.0-crypto.jar</tt></font>
+                                and
+                            </li>
+                            <li>
+                                <font style="font-weight: bold;color:green"><tt>bcprov-jdk16-140.jar</tt></font>.
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+                <p>
+                    All these libraries can be found in the jars folder.
+                </p>
+            </subsection>
+
+        </section>
+    </body>
+</document>

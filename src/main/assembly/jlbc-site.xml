@@ -1,0 +1,23 @@
+<assembly>
+    <id>site</id>
+    <formats>
+        <format>dir</format>
+    </formats>
+    
+    <includeBaseDirectory>false</includeBaseDirectory>
+
+    <fileSets>
+        <fileSet>
+            <directory>target/site</directory>
+            <outputDirectory>site</outputDirectory>
+            <includes/>
+        </fileSet>
+
+        <fileSet>
+            <directory>jlbc-api/target/site/apidocs</directory>
+            <outputDirectory>site/java-docs/api</outputDirectory>
+            <includes/>
+        </fileSet>
+    </fileSets>
+
+</assembly>

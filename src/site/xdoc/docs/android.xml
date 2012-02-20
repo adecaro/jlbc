@@ -1,0 +1,32 @@
+<!DOCTYPE document PUBLIC
+        "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+        "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+    <properties>
+        <title>Java Lattice-Based Cryptography Library : Docs - Android</title>
+        <author email="decaro@dia.unisa.it">Angelo De Caro</author>
+    </properties>
+
+    <body>
+        <section name="Android">
+            <p>
+                jLBC runs out of box on Android (2.1+ version).
+            </p>
+
+            <subsection name="A Benchmark App">
+                <p>
+                    Download the following
+                    <a href="../android/jpbc-android.apk">APK</a>
+                    to benchmark jLBC on your terminal.
+                    Once the benchmark is finished the results can be found
+                    on the external memory in a file called "benchmark.out".
+                </p>
+                <p>
+                    If you don’t mind it sending me the results with a description
+                    of the characteristics of the terminal used please
+                    <a href="../contact.html">contact</a> me.
+                </p>
+            </subsection>
+        </section>
+    </body>
+</document>

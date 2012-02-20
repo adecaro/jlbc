@@ -1,0 +1,43 @@
+<!DOCTYPE document PUBLIC
+        "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+        "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+    <properties>
+        <title>jLBC : Schemes</title>
+        <author email="decaro@dia.unisa.it">Angelo De Caro</author>
+    </properties>
+
+    <body>
+        <section name="Schemes">
+
+            <p>
+                Using jLBC some cryptosystems has been implemented. Into the jLBC distribution package you will find the full
+                implementation of these cryptosystems in the context of the
+                <a href="http://www.bouncycastle.org/java.html">Bouncy Castle</a>
+                framework. This will simplify the integration into the Java Cryptography Extension (JCE) framework.
+            </p>
+
+            <p>
+                The followings links will point you to some web-pages which describe the implemented cryptosystems
+                in a simplified way to give you some hits on how to do crypto-stuff by using jLBC.
+            </p>
+
+            <a name="he"/>
+            <subsection name="Homomorphic Encryption Schemes">
+                <ol>
+                    <li>
+                        <font style="font-weight: bold;color:red">
+                            <a href="./bgv11.html">[BGV'11]</a>
+                        </font>: Z. Brakerski and C. Gentry and V. Vaikuntanathan, Fully Homomorphic Encryption without Bootstrapping.
+                    </li>
+                    <li>
+                        <font style="font-weight: bold;color:red">
+                            <a href="./bv11b.html">[BV'11]</a>
+                        </font>: Z. Brakerski and V. Vaikuntanathan, Fully Homomorphic Encryption from Ring-LWE and Security for Key Dependent Messages.
+                    </li>
+                </ol>
+            </subsection>
+
+        </section>
+    </body>
+</document>

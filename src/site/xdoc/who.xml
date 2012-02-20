@@ -1,0 +1,21 @@
+<!DOCTYPE document PUBLIC
+        "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+        "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+    <properties>
+        <title>Java Lattice-Based Cryptography Library : Who Uses jLBC?</title>
+        <author email="adecaro@users.sourceforge.net">Angelo De Caro</author>
+    </properties>
+
+    <body>
+
+        <section name="Who Uses jLBC">
+            If your project uses the jLBC library and you don’t mind it appearing here please
+            <a href="./contact.html">contact</a>
+            me.
+        </section>
+
+        <section name="They are using jLBC">
+        </section>
+    </body>
+</document>

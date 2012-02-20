@@ -1,0 +1,44 @@
+<!DOCTYPE document PUBLIC
+        "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+        "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+    <properties>
+        <title>Java Lattice-Based Cryptography Library : Build HowTo</title>
+        <author email="adecaro@users.sourceforge.net">Angelo De Caro</author>
+    </properties>
+
+    <body>
+        <section name="Build HowTo">
+
+            <subsection name="Where are the sources?">
+                <p>
+                    You can obtain the sources of jLBC by
+                    <a href="./download.html">downloading</a>
+                    a distro package or by
+                    <a href="source-repository.html">checking out</a>
+                    the latest head revision from the repository.
+                </p>
+            </subsection>
+
+            <subsection name="Build System">
+                <p>
+                    jLBC is built using Maven 2. You can download it from
+                    <a href="http://maven.apache.org">http://maven.apache.org</a>.
+                    <br/>
+                    There are a few dependencies which are hosted on any publicly available Maven Repository so Maven
+                    will be able to resolve them automatically.
+                </p>
+
+                <p>
+                    To build and install (into the local maven repository) jLBC simply type in a shell the following:
+                </p>
+                <source>mvn clean package install</source>
+                <p>
+                    To build the binary and the source distribution simply type:
+                </p>
+                <source>mvn -Ddistro clean package install assembly:assembly</source>
+            </subsection>
+
+        </section>
+    </body>
+</document>

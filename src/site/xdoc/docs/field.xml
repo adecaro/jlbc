@@ -1,0 +1,84 @@
+<!DOCTYPE document PUBLIC
+        "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+        "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+    <properties>
+        <title>Java Lattice-Based Cryptography Library : Docs -  Field Functions</title>
+        <author email="decaro@dia.unisa.it">Angelo De Caro</author>
+    </properties>
+
+    <body>
+        <section name="Algebraic Structures">
+
+            <p>
+                The
+                <a href="../java-docs/api/it/unisa/dia/gas/jpbc/Field.html">
+                    <code>
+                        <font style="font-weight: bold;color:red">it.unisa.dia.gas.jpbc.Field</font>
+                    </code>
+                </a>
+                interface represents a generic algebraic structures.
+            </p>
+            <p>
+                Instances of that interface are accessed using the
+                <code><font style="font-weight: bold;color:red">it.unisa.dia.gas.jpbc.Pairing</font></code>
+                interface. Go
+                <a href="./pairing.html#accessing">here</a>
+                to know how.
+            </p>
+
+            <a name="initializing"/>
+            <subsection name="Initializing Elements">
+                <p>
+                    To obtain an instance of an
+                    <code><font style="font-weight: bold;color:red">it.unisa.dia.gas.jpbc.Element</font></code> interface
+                    then the following methods can be used:
+                </p>
+
+                <source>/* Create a new element. */
+<font style="font-weight: bold;color:green">Element element = field.newElement();</font>
+                </source>
+
+                <source>/* Create a new element whose value is zero. */
+<font style="font-weight: bold;color:green">Element element = field.newZeroElement();</font>
+                </source>
+
+                <source>/* Create a new element whose value is one. */
+<font style="font-weight: bold;color:green">Element element = field.newOneElement();</font>
+                </source>
+
+                <source>/* Create a new random element. */
+<font style="font-weight: bold;color:green">Element element = field.newRandomElement();</font>
+                </source>
+
+                <source>/* Create a new element with a specified value. */
+<font style="font-weight: bold;color:green">Element element = field.newElement(5);</font>
+                </source>
+
+                <source>/* Create a new element with a specified value. */
+<font style="font-weight: bold;color:green">Element element = field.newElement(new BigInteger("5390843849083028490328"));</font>
+                </source>
+            </subsection>
+
+            <a name="arithmetic"/>
+            <subsection name="Element Arithmetic">
+                The addition and the multiplication functions perform addition and multiplication operations in rings and
+                fields. For groups of points on an elliptic curve, such as the G1 and G2 groups associated with
+                pairings, both addition and multiplication represent the group operation (and similarly both
+                <code>0</code>
+                and
+                <code>1</code>
+                represent the identity element).
+
+                In contrast, the GT group is currently implemented as a subgroup of a finite field, so only
+                multiplicative operations should be used for GT.
+
+                <source>/* Performs the addition between element and a.*/
+Element a = element.getField().newElement(5);
+<font style="font-weight: bold;color:green">element.add(a);</font>
+                </source>
+            </subsection>
+
+        </section>
+    </body>
+</document>

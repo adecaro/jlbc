@@ -1,0 +1,64 @@
+<!DOCTYPE document PUBLIC
+        "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+        "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+    <properties>
+        <title>Java Lattice-Based Cryptography Library : Contact</title>
+        <author email="adecaro@users.sourceforge.net">Angelo De Caro</author>
+    </properties>
+
+    <body>
+        <section name="Contact">
+            jLBC is mainly developed by
+            <a href="http://www.dia.unisa.it/dottorandi/decaro/">Angelo De Caro</a>.
+            <br/>
+            Feel free to contact me at
+            <a href="mailto:decaro@dia.unisa.it">mailto:decaro@dia.unisa.it</a>.
+            <br/>
+            <p>
+                If you need help with something or just want to say hello, you can also use the forums or the support
+                section at sourceforge.net.
+            </p>
+            <ul>
+                <li>
+                    <a href="http://sourceforge.net/projects/jlbc/forums">Forums
+                        <img src="./images/external.png" alt="external link" border="0"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://sourceforge.net/tracker/?group_id=266486">Support
+                        requests
+                        <img src="./images/external.png" alt="external link" border="0"/>
+                    </a>
+                </li>
+            </ul>
+            <p>
+                By now you can chat with me. Try this Google service.
+            </p>
+            <div align="left">
+                <br/>
+                <iframe src="http://www.google.com/talk/service/badge/Show?tk=z01q6amlqb4ahfph9vs97sgi4b0791pbhjiirae5dfd186m87vf0m72h8n1e2v2b993h3ccgccna00u3s3b3qjgjt1n6ouaoprehp4depeuq6vsvilpvt3sljefdicaandkap91ugftg88jrmcbcktaq9pfqt2qss7jca7kpf&amp;w=200&amp;h=60"
+                        frameborder="0" aallowtransparency="true" width="200" height="60">
+                </iframe>
+            </div>
+        </section>
+
+        <section name="Contribute">
+            You can contribute to jLBC in a number of ways. The most obvious way is to report bugs
+            or request new features that would make jLBC a better application.
+            <ul>
+                <li>
+                    <a href="http://sourceforge.net/tracker/?group_id=266486&amp;atid=1134346">Bug tracker
+                        <img src="./images/external.png" alt="external link" border="0"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://sourceforge.net/tracker/?group_id=266486&amp;atid=1134349">Feature
+                        requests
+                        <img src="./images/external.png" alt="external link" border="0"/>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </body>
+</document>
