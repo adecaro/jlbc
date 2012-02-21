@@ -53,7 +53,7 @@ public class SHEBV11bKeyPairGenerator implements AsymmetricCipherKeyPairGenerato
     }
 
     public AsymmetricCipherKeyPair generateKeyPair() {
-        this.sampler = new GPV08FieldSampler(parameters.getRandom(), parameters.getSigma(), Rq);
+        this.sampler = new GPV08FieldSampler(parameters.getStrength(), parameters.getRandom(), parameters.getSigma(), Rq);
 
         // Generate secret key
         Element secretKey = sampler.sample();

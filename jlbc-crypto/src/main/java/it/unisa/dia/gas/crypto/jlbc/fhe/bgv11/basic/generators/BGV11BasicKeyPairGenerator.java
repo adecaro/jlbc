@@ -47,7 +47,7 @@ public class BGV11BasicKeyPairGenerator implements AsymmetricCipherKeyPairGenera
 
         RqN = new VectorField(random, Rq, N);
         RtN = new VectorField(random, new PolyModField(random, new ZrField(random, t), d), N);
-        sampler = new GPV08FieldSampler(parameters.getRandom(), parameters.getSigma(), Rq);
+        sampler = new GPV08FieldSampler(parameters.getStrength(), parameters.getRandom(), parameters.getSigma(), Rq);
     }
 
     public AsymmetricCipherKeyPair generateKeyPair() {

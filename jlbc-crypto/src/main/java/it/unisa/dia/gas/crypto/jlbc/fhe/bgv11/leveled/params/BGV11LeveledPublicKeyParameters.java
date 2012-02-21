@@ -101,12 +101,15 @@ public class BGV11LeveledPublicKeyParameters extends BGV11LeveledKeyParameters {
                         new BigDecimal(xE.toBigInteger().multiply(p), mc).divide(new BigDecimal(q, mc), mc).toBigInteger()
                 );
 
-                // TODO: improve this...
-                while (true) {
-                    if (!xE.toBigInteger().mod(t).equals(xScaledE.toBigInteger().mod(t)))
-                        xScaledE.add(zp.newOneElement());
+                BigInteger sE = xE.toBigInteger().mod(t);
+                BigInteger ssE = xScaledE.toBigInteger().mod(t);
+
+                if (!sE.equals(ssE)) {
+                    BigInteger value = sE.subtract(ssE).abs();
+                    if (ssE.compareTo(sE) == 1)
+                        xScaledE.sub(zp.newElement(value));
                     else
-                        break;
+                        xScaledE.add(zp.newElement(value));
                 }
                 vScaled.getAt(i).set(xScaledE);
             }

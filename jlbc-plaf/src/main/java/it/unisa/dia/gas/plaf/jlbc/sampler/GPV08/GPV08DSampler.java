@@ -9,21 +9,21 @@ import java.util.Random;
  */
 public class GPV08DSampler {
 
-    // TODO: bad bad bad
-    static BigInteger tofk = BigInteger.valueOf(Math.round(Math.log(128)));
-
     protected Random random;
-    
+
     private int sigma;
     private double sigmaSquare;
 
-    public GPV08DSampler(Random random, int sigma) {
+    private BigInteger tofk;
+
+    public GPV08DSampler(int strength, Random random, int sigma) {
         if (random == null)
             random = new SecureRandom();
 
         this.random = random;
         this.sigma = sigma;
         this.sigmaSquare = Math.pow(sigma, 2);
+        this.tofk = BigInteger.valueOf(Math.round(Math.log(strength) / Math.log(2)));
     }
 
 
@@ -38,8 +38,10 @@ public class GPV08DSampler {
 
             double rhoS = Math.exp(-Math.PI * Math.pow(x.subtract(c).longValue(), 2) / sigmaSquare);
 
-            if (random.nextDouble() < rhoS)
+            if (random.nextDouble() < rhoS) {
+//                System.out.println("x = " + x.bitCount() + " - " + x );
                 return x;
+            }
         }
     }
 

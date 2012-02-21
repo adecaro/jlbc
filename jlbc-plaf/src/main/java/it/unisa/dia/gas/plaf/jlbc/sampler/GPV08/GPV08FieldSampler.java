@@ -19,12 +19,12 @@ public class GPV08FieldSampler extends GPV08DSampler implements Sampler {
     private Field baseField;
 
 
-    public GPV08FieldSampler(Random random, int sigma) {
-        super(random, sigma);
+    public GPV08FieldSampler(int strength, Random random, int sigma) {
+        super(strength, random, sigma);
     }
 
-    public GPV08FieldSampler(Random random, int sigma, Field baseField) {
-        super(random, sigma);
+    public GPV08FieldSampler(int strength, Random random, int sigma, Field baseField) {
+        super(strength, random, sigma);
         this.baseField = baseField;
     }
 

@@ -65,7 +65,7 @@ public class BGV11LeveledKeyPairGenerator implements AsymmetricCipherKeyPairGene
 
             Field RqN = new VectorField(random, Rq, N);
             Field RtN = new VectorField(random, Rt, N);
-            Sampler sampler = new GPV08FieldSampler(parameters.getRandom(), parameters.getSigma(), Rq);
+            Sampler sampler = new GPV08FieldSampler(parameters.getStrength(), parameters.getRandom(), parameters.getSigma(), Rq);
 
             Field Zq = new ZrField(random, q);
             Element tInv = Zq.newElement(t).invert();
