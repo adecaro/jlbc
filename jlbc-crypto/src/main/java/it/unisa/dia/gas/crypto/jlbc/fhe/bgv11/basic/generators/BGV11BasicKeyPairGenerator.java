@@ -11,7 +11,7 @@ import it.unisa.dia.gas.plaf.jlbc.field.poly.PolyModField;
 import it.unisa.dia.gas.plaf.jlbc.field.vector.VectorField;
 import it.unisa.dia.gas.plaf.jlbc.field.z.SymmetricZrField;
 import it.unisa.dia.gas.plaf.jlbc.field.z.ZrField;
-import it.unisa.dia.gas.plaf.jlbc.sampler.GPV08.GPV08FieldSampler;
+import it.unisa.dia.gas.plaf.jlbc.sampler.gpv08.GPV08FieldSampler;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
 import org.bouncycastle.crypto.KeyGenerationParameters;

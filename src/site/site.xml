@@ -10,9 +10,7 @@
     <body>
 
         <links>
-            <item name="jPBC" href="http://gas.dia.unisa.it/projects/jpbc/"/>
-            <!--<item name="SF Project page" href="http://sourceforge.net/projects/jpbc/"/>-->
-            <!--<item name="Piwik" href="http://sourceforge.net/apps/piwik/jpbc/index.php?module=CoreHome&amp;action=index&amp;idSite=2&amp;period=week&amp;date=today"/>-->
+            <item name="GitHub" href="https://github.com/adecaro/jlbc"/>
         </links>
 
         <menu name="jLBC Library">
@@ -26,7 +24,6 @@
         </menu>
 
         <menu name="Documentation">
-
         </menu>
 
         <menu name="Crypto">
@@ -39,6 +36,7 @@
         </menu>
         
         ${reports}
+
     </body>
 
 </project>

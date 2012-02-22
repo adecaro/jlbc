@@ -10,8 +10,6 @@ import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.Arrays;
@@ -67,18 +65,5 @@ public class BGV11BasicEngineTest {
             e.printStackTrace();
         }
     }
-
-    public byte[] toByteArray(byte[]... bytesList) {
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        try {
-            for (byte[] bytes : bytesList) {
-                out.write(bytes);
-            }
-        } catch (IOException e) {
-            throw new IllegalStateException("Unbelievable");
-        }
-        return out.toByteArray();
-    }
-
 
 }

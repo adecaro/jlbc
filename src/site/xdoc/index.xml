@@ -31,42 +31,52 @@
             </ul>
 
             <div>
-                <a href="http://sourceforge.net">
-                    <img style="border:1px solid black" src="http://sflogo.sourceforge.net/sflogo.php?group_id=178005&amp;type=1" width="88" height="31" alt="SourceForge.net Logo"/>
+                <a href="https://github.com/" title="GitHub">
+                    <img width="80" height="40" style="border:1px solid black" alt="GitHub"
+                         src="./images/logos/github_logo_social_coding_outlined.png"/>
                 </a>
 
-                  <a href="http://maven.apache.org/" title="Maven" >
-                    <img style="border:1px solid black" alt="Maven" src="./images/logos/maven-feather.png"/>
+                <a href="http://maven.apache.org/" title="Maven">
+                    <img style="border:1px solid black" alt="Maven"
+                         src="./images/logos/maven-feather.png"/>
                 </a>
-
-                <!--<a href="http://crypto.stanford.edu/pbc">-->
-                  <!--<img alt="PBC's" src="http://crypto.stanford.edu/pbc/pbclogo32x32.png"/>-->
-               <!--</a>-->
             </div>
         </div>
 
+        <section name="Work in progress">
+            <font style="font-weight: bold;color:red">
+                Please stay tuned. I will release soon the first version :)
+                <br/>
+                In the meantime you can have a look to the source code
+                <a href="https://github.com/adecaro/jlbc">here</a>.
+            </font>
+        </section>
+
         <section name="Introduction">
 
-            The Java Lattice Based Cryptography Library (jLBC) is is a free Java library
+            The Java Lattice Based Cryptography Library (jLBC) is a free Java library
             (released under the GNU Lesser General Public License)
             that performs the mathematical operations underlying lattice-based cryptosystems.
 
             jLBC consists of the following two core modules:
             <ul>
                 <li>
-                    <font style="font-weight: bold;color:green">jlbc-api</font> :
+                    <font style="font-weight: bold;color:green">jlbc-api</font>
+                    :
                     the Application Program Interfaces (API).
                 </li>
 
                 <li>
-                    <font style="font-weight: bold;color:green">jlbc-plaf</font> :
+                    <font style="font-weight: bold;color:green">jlbc-plaf</font>
+                    :
                     the port implementation of the API.
                 </li>
-    	    </ul>
-	        and the following support modules:
-	        <ul>
-        	    <li>
-                    <font style="font-weight: bold;color:green">jlbc-crypto</font> :
+            </ul>
+            and the following support modules:
+            <ul>
+                <li>
+                    <font style="font-weight: bold;color:green">jlbc-crypto</font>
+                    :
                     the implementation of some lattice based crypto-systems.
                     Have a look
                     <a href="./schemes/schemes.html">here</a>

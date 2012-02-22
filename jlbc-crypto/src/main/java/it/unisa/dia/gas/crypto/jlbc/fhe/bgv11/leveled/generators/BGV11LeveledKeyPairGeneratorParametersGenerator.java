@@ -17,10 +17,10 @@ public class BGV11LeveledKeyPairGeneratorParametersGenerator {
     private int sigma;
 
 
-    public BGV11LeveledKeyPairGeneratorParametersGenerator(SecureRandom random, int strenght,
+    public BGV11LeveledKeyPairGeneratorParametersGenerator(SecureRandom random, int strength,
                                                            int L, int d, BigInteger t, int sigma) {
         this.random = random;
-        this.strength = strenght;
+        this.strength = strength;
         this.L = L;
         this.d = d;
         this.t = t;

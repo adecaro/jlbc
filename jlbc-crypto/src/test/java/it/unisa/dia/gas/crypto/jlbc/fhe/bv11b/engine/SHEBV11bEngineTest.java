@@ -3,13 +3,12 @@ package it.unisa.dia.gas.crypto.jlbc.fhe.bv11b.engine;
 import it.unisa.dia.gas.crypto.jlbc.fhe.bv11b.generators.SHEBV11bKeyPairGenerator;
 import it.unisa.dia.gas.crypto.jlbc.fhe.bv11b.params.*;
 import it.unisa.dia.gas.jpbc.Element;
+import it.unisa.dia.gas.plaf.jlbc.util.io.IOUtils;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.Arrays;
@@ -66,7 +65,7 @@ public class SHEBV11bEngineTest {
 
             // Add
             engine.init(true, new SHEBV11bAddParameters(pk));
-            byte[] buffer = toByteArray(ct1, ct2);
+            byte[] buffer = IOUtils.toByteArray(ct1, ct2);
             start = System.currentTimeMillis();
             byte[] ctSum = engine.processBlock(buffer, 0, buffer.length);
             end = System.currentTimeMillis();
@@ -79,7 +78,7 @@ public class SHEBV11bEngineTest {
 
             // Mul
             engine.init(true, new SHEBV11bMulParameters(pk));
-            buffer = toByteArray(ct1, ct2);
+            buffer = IOUtils.toByteArray(ct1, ct2);
             start = System.currentTimeMillis();
             byte[] ctMul = engine.processBlock(buffer, 0, buffer.length);
             end = System.currentTimeMillis();
@@ -93,19 +92,5 @@ public class SHEBV11bEngineTest {
             e.printStackTrace();
         }
     }
-
-
-    public byte[] toByteArray(byte[]... bytesList) {
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        try {
-            for (byte[] bytes : bytesList) {
-                out.write(bytes);
-            }
-        } catch (IOException e) {
-            throw new IllegalStateException("Unbelievable");
-        }
-        return out.toByteArray();
-    }
-
 
 }

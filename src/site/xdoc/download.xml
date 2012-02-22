@@ -29,9 +29,6 @@
                                 <font style="font-weight: bold;">Version</font>
                             </td>
                             <td>
-                                <font style="font-weight: bold;">Release date</font>
-                            </td>
-                            <td>
                                 <font style="font-weight: bold;">Category</font>
                             </td>
                             <td/>
@@ -39,12 +36,11 @@
 
                         <tr valign="top">
                             <td>jLBC</td>
-                            <td>1.2.0</td>
-                            <td>August 2011</td>
+                            <td>1.0.0</td>
                             <td>Stable</td>
                             <td>
                                 <em>
-                                    <a href="http://sourceforge.net/projects/jpbc/files/">
+                                    <a href="https://github.com/adecaro/jlbc/downloads">
                                         Download
                                     </a>
                                 </em>
@@ -58,7 +54,7 @@
                 <br/>
                 
                 <font style="font-weight: bold;">
-                    <a href="http://prdownloads.sourceforge.net/jpbc/?sort_by=date&amp;sort=desc">
+                    <a href="https://github.com/adecaro/jlbc/downloads">
                         Browse all jLBC downloads
                     </a>
                 </font>
@@ -103,43 +99,28 @@
             <subsection name="Usage">
                 <ol type="1">
                     <li>Unzip
-                        <tt>jpbc-1.2.0.zip</tt>
+                        <tt>jlbc-1.0.0.zip</tt>
                         to the directory you wish to unzip it.
                     </li>
                     <li>To use jLBC add to your classpath the following jars:
                         <ol type="1">
                             <li>
-                                <font style="font-weight: bold;color:red"><tt>jpbc_1.2.0-api.jar</tt></font>
+                                <font style="font-weight: bold;color:red"><tt>jlbc_1.0.0-api.jar</tt></font>
                                 and
                             </li>
 
                             <li>
-                                <font style="font-weight: bold;color:red"><tt>jpbc_1.2.0-plaf.jar</tt></font>.
+                                <font style="font-weight: bold;color:red"><tt>jlbc_1.0.0-plaf.jar</tt></font>.
                             </li>
                         </ol>
-                        To use the wrapper include also
-                        <ol>
-                            <li>
-                                <font style="font-weight: bold;color:green"><tt>jpbc_1.2.0-pbc.jar</tt></font>
-                                and
-                            </li>
-
-                            <li>
-                                <font style="font-weight: bold;color:green"><tt>jna-3.1.0.jar</tt></font>.
-                            </li>
-                        </ol>
-                        Remember that to use the wrapper you must compile the shared library
-                        to enable the communication between PBC and jLBC. Go
-                        <a href="./docs/pbcwrapper.html">here</a>
-                        to see how to do that.
                     </li>
                     <li>
                         If you want to use the implemented 
-                        <a href="schemes/schemes.html">pairing based crypto-systems</a>
+                        <a href="schemes/schemes.html">lattice-based cryptosystems</a>
                         include:
                         <ol>
                             <li>
-                                <font style="font-weight: bold;color:green"><tt>jpbc_1.2.0-crypto.jar</tt></font>
+                                <font style="font-weight: bold;color:green"><tt>jlbc_1.0.0-crypto.jar</tt></font>
                                 and
                             </li>
                             <li>

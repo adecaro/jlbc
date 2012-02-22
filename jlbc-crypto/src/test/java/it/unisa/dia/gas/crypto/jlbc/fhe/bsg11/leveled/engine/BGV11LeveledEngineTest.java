@@ -8,14 +8,13 @@ import it.unisa.dia.gas.crypto.jlbc.fhe.bgv11.leveled.params.BGV11LeveledMulPara
 import it.unisa.dia.gas.crypto.jlbc.fhe.bgv11.leveled.params.BGV11LeveledPublicKeyParameters;
 import it.unisa.dia.gas.crypto.jlbc.fhe.bgv11.leveled.params.BGV11LeveledSecretKeyParameters;
 import it.unisa.dia.gas.jpbc.Element;
+import it.unisa.dia.gas.plaf.jlbc.util.io.IOUtils;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 
@@ -33,7 +32,7 @@ public class BGV11LeveledEngineTest {
 
     @Test
     public void testBESBGV11Engine() {
-        AsymmetricCipherKeyPair keyPair = genKey(new SecureRandom(), 64, 5, 3, BigInteger.valueOf(71), 8);
+        AsymmetricCipherKeyPair keyPair = genKey(new SecureRandom(), 64, 5, 4, BigInteger.valueOf(71), 8);
 
         BGV11LeveledPublicKeyParameters pk = (BGV11LeveledPublicKeyParameters) keyPair.getPublic();
         BGV11LeveledSecretKeyParameters sk = (BGV11LeveledSecretKeyParameters) keyPair.getPrivate();
@@ -75,7 +74,7 @@ public class BGV11LeveledEngineTest {
 
     private byte[] add(BGV11LeveledPublicKeyParameters pk, byte[] ctA, byte[] ctB) {
         engine.init(true, new BGV11LeveledAddParameters(pk));
-        byte[] message = toByteArray(ctA, ctB);
+        byte[] message = IOUtils.toByteArray(ctA, ctB);
 
         long start = System.currentTimeMillis();
         try {
@@ -90,7 +89,7 @@ public class BGV11LeveledEngineTest {
 
     private byte[] mul(BGV11LeveledPublicKeyParameters pk, byte[] ctA, byte[] ctB) {
         engine.init(true, new BGV11LeveledMulParameters(pk));
-        byte[] message = toByteArray(ctA, ctB);
+        byte[] message = IOUtils.toByteArray(ctA, ctB);
 
         long start = System.currentTimeMillis();
         try {
@@ -103,11 +102,11 @@ public class BGV11LeveledEngineTest {
         }
     }
 
-    protected AsymmetricCipherKeyPair genKey(SecureRandom random, int strenght, int L, int d, BigInteger t, int sigma) {
+    protected AsymmetricCipherKeyPair genKey(SecureRandom random, int strength, int L, int d, BigInteger t, int sigma) {
         BGV11LeveledKeyPairGenerator keyPairGenerator = new BGV11LeveledKeyPairGenerator();
         keyPairGenerator.init(
                 new BGV11LeveledKeyPairGeneratorParametersGenerator(
-                        random, strenght, L, d, t, sigma
+                        random, strength, L, d, t, sigma
                 ).generate()
         );
         long start = System.currentTimeMillis();
@@ -154,18 +153,6 @@ public class BGV11LeveledEngineTest {
         } finally {
             System.out.println("BGV11LeveledEngineTest.dec " + (end - start));
         }
-    }
-
-    public byte[] toByteArray(byte[]... bytesList) {
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        try {
-            for (byte[] bytes : bytesList) {
-                out.write(bytes);
-            }
-        } catch (IOException e) {
-            throw new IllegalStateException("Unbelievable");
-        }
-        return out.toByteArray();
     }
 
 }

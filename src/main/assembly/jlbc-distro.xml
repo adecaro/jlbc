@@ -15,8 +15,7 @@
     <moduleSets>
         <moduleSet>
             <includes>
-                <include>it.unisa.dia.gas:jpbc-pbc</include>
-                <include>it.unisa.dia.gas:jpbc-crypto</include>
+                <include>it.unisa.dia.gas:jlbc-pbc</include>
             </includes>
             <binaries>
                 <outputDirectory>jars</outputDirectory>
@@ -25,7 +24,7 @@
                 <dependencySets>
                     <dependencySet>
                         <excludes>
-                            <exclude>it.unisa.dia.gas:jpbc-plaf:tests</exclude>
+                            <exclude>it.unisa.dia.gas:jlbc-plaf:tests</exclude>
                         </excludes>
                     </dependencySet>
                 </dependencySets>
@@ -34,11 +33,9 @@
 
         <moduleSet>
             <includes>
-                <include>it.unisa.dia.gas:jpbc-api</include>
-                <include>it.unisa.dia.gas:jpbc-plaf</include>
-                <include>it.unisa.dia.gas:jpbc-pbc</include>
-                <include>it.unisa.dia.gas:jpbc-crypto</include>
-                <!--<include>it.unisa.dia.gas:jpbc-site-skin</include>-->
+                <include>it.unisa.dia.gas:jlbc-api</include>
+                <include>it.unisa.dia.gas:jlbc-plaf</include>
+                <include>it.unisa.dia.gas:jlbc-crypto</include>
             </includes>
             <sources>
                 <fileSets>
@@ -54,8 +51,6 @@
                         <includes>
                             <include>pom.xml</include>
                             <include>CMakeLists.txt</include>
-                            <include>*.iml</include>
-                            <include>Find*.cmake</include>
                         </includes>
                     </fileSet>
                 </fileSets>
@@ -64,22 +59,8 @@
     </moduleSets>
 
     <fileSets>
-        <!--
-                <fileSet>
-                    <directory>src</directory>
-                    <outputDirectory>src</outputDirectory>
-                    <includes/>
-                </fileSet>
-        -->
-
         <fileSet>
-            <directory>params</directory>
-            <outputDirectory>params</outputDirectory>
-            <includes/>
-        </fileSet>
-
-        <fileSet>
-            <directory>jpbc-plaf/target</directory>
+            <directory>jlbc-plaf/target</directory>
             <outputDirectory>jars/test</outputDirectory>
             <includes>
                 <include>*tests.jar</include>
@@ -87,7 +68,7 @@
         </fileSet>
 
         <fileSet>
-            <directory>jpbc-pbc/target</directory>
+            <directory>jlbc-crypto/target</directory>
             <outputDirectory>jars/test</outputDirectory>
             <includes>
                 <include>*tests.jar</include>
@@ -95,15 +76,7 @@
         </fileSet>
 
         <fileSet>
-            <directory>jpbc-crypto/target</directory>
-            <outputDirectory>jars/test</outputDirectory>
-            <includes>
-                <include>*tests.jar</include>
-            </includes>
-        </fileSet>
-
-        <fileSet>
-            <directory>jpbc-api/target</directory>
+            <directory>jlbc-api/target</directory>
             <outputDirectory>jars/sources</outputDirectory>
             <includes>
                 <include>*sources.jar</include>
@@ -111,7 +84,7 @@
         </fileSet>
 
         <fileSet>
-            <directory>jpbc-plaf/target</directory>
+            <directory>jlbc-plaf/target</directory>
             <outputDirectory>jars/sources</outputDirectory>
             <includes>
                 <include>*sources.jar</include>
@@ -119,7 +92,7 @@
         </fileSet>
 
         <fileSet>
-            <directory>jpbc-pbc/target</directory>
+            <directory>jlbc-crypto/target</directory>
             <outputDirectory>jars/sources</outputDirectory>
             <includes>
                 <include>*sources.jar</include>
@@ -127,15 +100,7 @@
         </fileSet>
 
         <fileSet>
-            <directory>jpbc-crypto/target</directory>
-            <outputDirectory>jars/sources</outputDirectory>
-            <includes>
-                <include>*sources.jar</include>
-            </includes>
-        </fileSet>
-
-        <fileSet>
-            <directory>jpbc-plaf/target</directory>
+            <directory>jlbc-plaf/target</directory>
             <outputDirectory>jars/sources</outputDirectory>
             <includes>
                 <include>*sources.jar</include>
@@ -151,23 +116,11 @@
 
     <files>
         <file>
-            <source>pom.xml</source>
+            <source>./src/main/assembly/distro/pom.xml</source>
             <outputDirectory>.</outputDirectory>
         </file>
         <file>
-            <source>jpbc.iml</source>
-            <outputDirectory>.</outputDirectory>
-        </file>
-        <file>
-            <source>benchmark.xml</source>
-            <outputDirectory>.</outputDirectory>
-        </file>
-        <file>
-            <source>curvegen.xml</source>
-            <outputDirectory>.</outputDirectory>
-        </file>
-        <file>
-            <source>./src/main/assembly/jpbc-distro.xml</source>
+            <source>./src/main/assembly/jlbc-distro.xml</source>
             <outputDirectory>./src/main/assembly/</outputDirectory>
         </file>
     </files>

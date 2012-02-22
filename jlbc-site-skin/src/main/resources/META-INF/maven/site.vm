@@ -268,18 +268,11 @@
     #end
   </head>
   <body class="composite">
-<!--    <div id="banner">
-        <a href="http://gas.dia.unisa.it/projects/jlbc/" id="bannerLeft">
-            <img id="bannerImage" src="http://gas.dia.unisa.it/projects/jlbc/images/banners/banner_4.jpg" alt="" width="1124"/>
-        </a>
-        <div class="clear">
-        <hr/>
-      </div>
-    </div>  -->
     <div id="breadcrumbs">
       #publishDate( "left" $decoration.publishDate $decoration.version )
       <div class="xright">
           #links( $decoration.body.links )
+          | <a href="http://gas.dia.unisa.it/projects/jpbc/">jPBC</a>
           | <a href="http://gas.dia.unisa.it/">GAS Lab</a>
           | <!-- AddThis Button BEGIN -->
             <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4d60deb101a7e912"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>
