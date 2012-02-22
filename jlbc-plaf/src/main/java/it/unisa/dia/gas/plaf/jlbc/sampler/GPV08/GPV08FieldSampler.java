@@ -1,4 +1,4 @@
-package it.unisa.dia.gas.plaf.jlbc.sampler.GPV08;
+package it.unisa.dia.gas.plaf.jlbc.sampler.gpv08;
 
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Field;

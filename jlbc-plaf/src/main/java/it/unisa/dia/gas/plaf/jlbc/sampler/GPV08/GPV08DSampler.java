@@ -1,4 +1,4 @@
-package it.unisa.dia.gas.plaf.jlbc.sampler.GPV08;
+package it.unisa.dia.gas.plaf.jlbc.sampler.gpv08;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
