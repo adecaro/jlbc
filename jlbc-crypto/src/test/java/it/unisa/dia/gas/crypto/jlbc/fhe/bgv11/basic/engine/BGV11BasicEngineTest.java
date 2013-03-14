@@ -1,6 +1,5 @@
-package it.unisa.dia.gas.crypto.jlbc.fhe.bsg11.basic.engine;
+package it.unisa.dia.gas.crypto.jlbc.fhe.bgv11.basic.engine;
 
-import it.unisa.dia.gas.crypto.jlbc.fhe.bgv11.basic.engine.BGV11BasicEngine;
 import it.unisa.dia.gas.crypto.jlbc.fhe.bgv11.basic.generators.BGV11BasicKeyPairGenerator;
 import it.unisa.dia.gas.crypto.jlbc.fhe.bgv11.basic.params.BGV11BasicKeyPairGeneratorParameters;
 import it.unisa.dia.gas.crypto.jlbc.fhe.bgv11.basic.params.BGV11BasicPublicKeyParameters;

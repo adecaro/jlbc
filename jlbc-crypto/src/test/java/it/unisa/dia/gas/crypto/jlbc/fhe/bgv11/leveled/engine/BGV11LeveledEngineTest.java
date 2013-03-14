@@ -1,6 +1,5 @@
-package it.unisa.dia.gas.crypto.jlbc.fhe.bsg11.leveled.engine;
+package it.unisa.dia.gas.crypto.jlbc.fhe.bgv11.leveled.engine;
 
-import it.unisa.dia.gas.crypto.jlbc.fhe.bgv11.leveled.engine.BGV11LeveledEngine;
 import it.unisa.dia.gas.crypto.jlbc.fhe.bgv11.leveled.generators.BGV11LeveledKeyPairGenerator;
 import it.unisa.dia.gas.crypto.jlbc.fhe.bgv11.leveled.generators.BGV11LeveledKeyPairGeneratorParametersGenerator;
 import it.unisa.dia.gas.crypto.jlbc.fhe.bgv11.leveled.params.BGV11LeveledAddParameters;
