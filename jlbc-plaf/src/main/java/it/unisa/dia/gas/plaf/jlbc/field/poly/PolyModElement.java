@@ -20,7 +20,7 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
         this.field = field;
 
         for (int i = 0; i < field.n; i++) {
-            coeff.add((E) field.getTargetField().newElement());
+            coefficients.add((E) field.getTargetField().newElement());
         }
     }
 
@@ -28,7 +28,7 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
         super(field);
         this.field = field;
 
-        this.coeff = coeff;
+        this.coefficients = coeff;
     }
 
 
@@ -42,9 +42,9 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
     }
 
     public PolyModElement<E> duplicate() {
-        List<Element> duplicatedCoeff = new ArrayList<Element>(coeff.size());
+        List<Element> duplicatedCoeff = new ArrayList<Element>(coefficients.size());
 
-        for (Element element : coeff) {
+        for (Element element : coefficients) {
             duplicatedCoeff.add(element.duplicate());
         }
 
@@ -54,28 +54,28 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
     public PolyModElement<E> set(Element e) {
         PolyModElement<E> element = (PolyModElement<E>) e;
 
-        for (int i = 0; i < coeff.size(); i++) {
-            coeff.get(i).set(element.coeff.get(i));
+        for (int i = 0; i < coefficients.size(); i++) {
+            coefficients.get(i).set(element.coefficients.get(i));
         }
 
         return this;
     }
 
     public PolyModElement<E> set(int value) {
-        coeff.get(0).set(value);
+        coefficients.get(0).set(value);
 
         for (int i = 1; i < field.n; i++) {
-            coeff.get(i).setToZero();
+            coefficients.get(i).setToZero();
         }
 
         return this;
     }
 
     public PolyModElement<E> set(BigInteger value) {
-        coeff.get(0).set(value);
+        coefficients.get(0).set(value);
 
         for (int i = 1; i < field.n; i++) {
-            coeff.get(i).setToZero();
+            coefficients.get(i).setToZero();
         }
 
         return this;
@@ -83,7 +83,7 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
 
     public PolyModElement<E> setToRandom() {
         for (int i = 0; i < field.n; i++) {
-            coeff.get(i).setToRandom();
+            coefficients.get(i).setToRandom();
         }
 
         return this;
@@ -91,7 +91,7 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
 
     public PolyModElement<E> setFromHash(byte[] source, int offset, int length) {
         for (int i = 0; i < field.n; i++) {
-            coeff.get(i).setFromHash(source, offset, length);
+            coefficients.get(i).setFromHash(source, offset, length);
         }
 
         return this;
@@ -99,7 +99,7 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
 
     public PolyModElement<E> setToZero() {
         for (int i = 0; i < field.n; i++) {
-            coeff.get(i).setToZero();
+            coefficients.get(i).setToZero();
         }
 
         return this;
@@ -107,28 +107,28 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
 
     public boolean isZero() {
         for (int i = 0; i < field.n; i++) {
-            if (!coeff.get(i).isZero())
+            if (!coefficients.get(i).isZero())
                 return false;
         }
         return true;
     }
 
     public PolyModElement<E> setToOne() {
-        coeff.get(0).setToOne();
+        coefficients.get(0).setToOne();
 
         for (int i = 1; i < field.n; i++) {
-            coeff.get(i).setToZero();
+            coefficients.get(i).setToZero();
         }
 
         return this;
     }
 
     public boolean isOne() {
-        if (!coeff.get(0).isOne())
+        if (!coefficients.get(0).isOne())
             return false;
 
         for (int i = 1; i < field.n; i++) {
-            if (!coeff.get(i).isZero())
+            if (!coefficients.get(i).isZero())
                 return false;
         }
 
@@ -136,9 +136,9 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
     }
 
     public PolyModElement<E> map(Element e) {
-        coeff.get(0).set(e);
+        coefficients.get(0).set(e);
         for (int i = 1; i < field.n; i++) {
-            coeff.get(i).setToZero();
+            coefficients.get(i).setToZero();
         }
 
         return this;
@@ -146,7 +146,7 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
 
     public PolyModElement<E> twice() {
         for (int i = 0; i < field.n; i++) {
-            coeff.get(i).twice();
+            coefficients.get(i).twice();
         }
 
         return this;
@@ -159,22 +159,22 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
                 Element c0 = field.getTargetField().newElement();
                 Element c2 = field.getTargetField().newElement();
 
-                Element c3 = p0.coeff.get(0);
-                Element c1 = p0.coeff.get(1);
+                Element c3 = p0.coefficients.get(0);
+                Element c1 = p0.coefficients.get(1);
 
-                c3.set(coeff.get(0)).mul(coeff.get(1));
-                c1.set(coeff.get(0)).mul(coeff.get(2));
-                coeff.get(0).square();
+                c3.set(coefficients.get(0)).mul(coefficients.get(1));
+                c1.set(coefficients.get(0)).mul(coefficients.get(2));
+                coefficients.get(0).square();
 
-                c2.set(coeff.get(1)).mul(coeff.get(2));
-                c0.set(coeff.get(2)).square();
-                coeff.get(2).set(coeff.get(1)).square();
+                c2.set(coefficients.get(1)).mul(coefficients.get(2));
+                c0.set(coefficients.get(2)).square();
+                coefficients.get(2).set(coefficients.get(1)).square();
 
-                coeff.get(1).set(c3).add(c3);
+                coefficients.get(1).set(c3).add(c3);
 
                 c1.add(c1);
 
-                coeff.get(2).add(c1);
+                coefficients.get(2).add(c1);
                 p0.set(field.xpwr[1]);
                 p0.polymodConstMul(c0);
                 add(p0);
@@ -198,7 +198,7 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
     }
 
     public PolyModElement<E> negate() {
-        for (Element e : coeff) {
+        for (Element e : coefficients) {
             e.negate();
         }
 
@@ -209,7 +209,7 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
         PolyModElement<E> element = (PolyModElement<E>) e;
 
         for (int i = 0; i < field.n; i++) {
-            coeff.get(i).add(element.coeff.get(i));
+            coefficients.get(i).add(element.coefficients.get(i));
         }
 
         return this;
@@ -219,7 +219,7 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
         PolyModElement<E> element = (PolyModElement<E>) e;
 
         for (int i = 0; i < field.n; i++) {
-            coeff.get(i).sub(element.coeff.get(i));
+            coefficients.get(i).sub(element.coefficients.get(i));
         }
 
         return this;
@@ -234,7 +234,7 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
                 Element c3 = field.getTargetField().newElement();
                 Element c4 = field.getTargetField().newElement();
 
-                kar_poly_2(coeff, c3, c4, coeff, element.getCoefficients(), p0.coeff);
+                kar_poly_2(coefficients, c3, c4, coefficients, element.getCoefficients(), p0.coefficients);
 
                 p0.set(field.xpwr[0]).polymodConstMul(c3);
                 add(p0);
@@ -258,11 +258,11 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
 
                     int j = 0;
                     for (; j < ni; j++) {
-                        c0.set(coeff.get(i)).mul(element.getCoefficient(j));
-                        prod.coeff.get(i + j).add(c0);
+                        c0.set(coefficients.get(i)).mul(element.getCoefficient(j));
+                        prod.coefficients.get(i + j).add(c0);
                     }
                     for (; j < field.n; j++) {
-                        c0.set(coeff.get(i)).mul(element.getCoefficient(j));
+                        c0.set(coefficients.get(i)).mul(element.getCoefficient(j));
                         high[j - ni].add(c0);
                     }
                 }
@@ -280,7 +280,7 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
 
     public PolyModElement<E> mul(int z) {
         for (int i = 0; i < field.n; i++) {
-            coeff.get(i).mul(z);
+            coefficients.get(i).mul(z);
         }
 
         return this;
@@ -288,7 +288,7 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
 
     public PolyModElement<E> mul(BigInteger n) {
         for (int i = 0; i < field.n; i++) {
-            coeff.get(i).mul(n);
+            coefficients.get(i).mul(n);
         }
 
         return this;
@@ -296,8 +296,8 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
 
     public int sign() {
         int res = 0;
-        for (int i = 0, size = coeff.size(); i < size; i++) {
-            res = coeff.get(i).sign();
+        for (int i = 0, size = coefficients.size(); i < size; i++) {
+            res = coefficients.get(i).sign();
             if (res != 0)
                 break;
         }
@@ -308,7 +308,7 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
         PolyModElement<E> element = (PolyModElement<E>) e;
 
         for (int i = 0; i < field.n; i++) {
-            if (!coeff.get(i).isEqual(element.coeff.get(i)))
+            if (!coefficients.get(i).isEqual(element.coefficients.get(i)))
                 return false;
         }
 
@@ -321,8 +321,8 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
 
     public int setFromBytes(byte[] source, int offset) {
         int len = offset;
-        for (int i = 0, size = coeff.size(); i < size; i++) {
-            len += coeff.get(i).setFromBytes(source, len);
+        for (int i = 0, size = coefficients.size(); i < size; i++) {
+            len += coefficients.get(i).setFromBytes(source, len);
         }
         return len - offset;
     }
@@ -331,21 +331,21 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
         byte[] buffer = new byte[field.getLengthInBytes()];
         int targetLB = field.getTargetField().getLengthInBytes();
 
-        for (int len = 0, i = 0, size = coeff.size(); i < size; i++, len += targetLB) {
-            byte[] temp = coeff.get(i).toBytes();
+        for (int len = 0, i = 0, size = coefficients.size(); i < size; i++, len += targetLB) {
+            byte[] temp = coefficients.get(i).toBytes();
             System.arraycopy(temp, 0, buffer, len, targetLB);
         }
         return buffer;
     }
 
     public BigInteger toBigInteger() {
-        return coeff.get(0).toBigInteger();
+        return coefficients.get(0).toBigInteger();
     }
 
 
     public String toString() {
         StringBuilder buffer = new StringBuilder("[");
-        for (Element e : coeff) {
+        for (Element e : coefficients) {
             buffer.append(e).append(", ");
         }
         buffer.append("]");
@@ -366,11 +366,11 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
 
         int i = 0;
         for (; i < n; i++) {
-            coeff.get(i).set(element.getCoefficients().get(i));
+            coefficients.get(i).set(element.getCoefficients().get(i));
         }
 
         for (; i < field.n; i++) {
-            coeff.get(i).setToZero();
+            coefficients.get(i).setToZero();
         }
 
         return this;
@@ -378,8 +378,8 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
 
     public PolyModElement<E> polymodConstMul(Element e) {
         //a lies in R, e in R[x]
-        for (int i = 0, n = coeff.size(); i < n; i++) {
-            coeff.get(i).mul(e);
+        for (int i = 0, n = coefficients.size(); i < n; i++) {
+            coefficients.get(i).mul(e);
         }
 
         return this;
@@ -388,7 +388,7 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
 
     protected void squareInternal() {
         List<E> dst;
-        List<E> src = coeff;
+        List<E> src = coefficients;
 
         int n = field.n;
 
@@ -403,7 +403,7 @@ public class PolyModElement<E extends Element> extends AbstractPolyElement<E> {
         }
 
         prod = field.newElement();
-        dst = prod.coeff;
+        dst = prod.coefficients;
         p0 = field.newElement();
         c0 = field.getTargetField().newElement();
 

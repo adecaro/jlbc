@@ -290,4 +290,7 @@ public interface Element {
      */
     int sign();
 
+
+    Element mod(BigInteger n);
+
 }

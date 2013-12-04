@@ -10,8 +10,6 @@ import org.bouncycastle.crypto.AsymmetricBlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.InvalidCipherTextException;
 
-import java.math.BigInteger;
-
 /**
  * @author Angelo De Caro (angelo.decaro@gmail.com)
  */
@@ -75,8 +73,7 @@ public class BGV11BasicEngine implements AsymmetricBlockCipher {
             Element s = sk.getS();
 
             // Decrypt
-            return mod(
-                    c[0].add(c[1].mul(s)),
+            return c[0].add(c[1].mul(s)).mod(
                     sk.getParameters().getT()
             ).toBytes();
         }
@@ -94,15 +91,6 @@ public class BGV11BasicEngine implements AsymmetricBlockCipher {
         }
 
         return result;
-    }
-
-
-    public Element mod(Element m, BigInteger order) {
-        Vector v = (Vector) m;
-        for (int i = 0; i < v.getSize(); i++)
-            v.getAt(i).set(v.getAt(i).toBigInteger().mod(order));
-
-        return v;
     }
 
 }

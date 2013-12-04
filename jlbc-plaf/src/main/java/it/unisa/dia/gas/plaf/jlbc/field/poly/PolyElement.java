@@ -2,8 +2,6 @@ package it.unisa.dia.gas.plaf.jlbc.field.poly;
 
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Field;
-import it.unisa.dia.gas.jpbc.Polynomial;
-import it.unisa.dia.gas.plaf.jlbc.util.math.BigIntegerUtils;
 
 import java.math.BigInteger;
 
@@ -27,8 +25,8 @@ public class PolyElement<E extends Element> extends AbstractPolyElement<E> {
     public PolyElement<E> duplicate() {
         PolyElement copy = new PolyElement(field);
 
-        for (Element e : coeff) {
-            copy.coeff.add(e.duplicate());
+        for (Element e : coefficients) {
+            copy.coefficients.add(e.duplicate());
         }
 
         return copy;
@@ -37,10 +35,10 @@ public class PolyElement<E extends Element> extends AbstractPolyElement<E> {
     public PolyElement<E> set(Element e) {
         PolyElement<E> element = (PolyElement<E>) e;
 
-        ensureSize(element.coeff.size());
+        ensureSize(element.coefficients.size());
 
-        for (int i = 0; i < coeff.size(); i++) {
-            coeff.get(i).set(element.coeff.get(i));
+        for (int i = 0; i < coefficients.size(); i++) {
+            coefficients.get(i).set(element.coefficients.get(i));
         }
 
         return this;
@@ -48,7 +46,7 @@ public class PolyElement<E extends Element> extends AbstractPolyElement<E> {
 
     public PolyElement<E> set(int value) {
         ensureSize(1);
-        coeff.get(0).set(value);
+        coefficients.get(0).set(value);
         removeLeadingZeroes();
 
         return this;
@@ -56,7 +54,7 @@ public class PolyElement<E extends Element> extends AbstractPolyElement<E> {
 
     public PolyElement<E> set(BigInteger value) {
         ensureSize(1);
-        coeff.get(0).set(value);
+        coefficients.get(0).set(value);
         removeLeadingZeroes();
 
         return this;
@@ -77,24 +75,24 @@ public class PolyElement<E extends Element> extends AbstractPolyElement<E> {
     }
 
     public boolean isZero() {
-        return coeff.size() == 0;
+        return coefficients.size() == 0;
     }
 
     public PolyElement<E> setToOne() {
         ensureSize(1);
-        coeff.get(0).setToOne();
+        coefficients.get(0).setToOne();
 
         return this;
     }
 
     public boolean isOne() {
-        return coeff.size() == 1 && coeff.get(0).isOne();
+        return coefficients.size() == 1 && coefficients.get(0).isOne();
 
     }
 
     public PolyElement<E> twice() {
-        for (int i = 0, size = coeff.size(); i < size; i++) {
-            coeff.get(i).twice();
+        for (int i = 0, size = coefficients.size(); i < size; i++) {
+            coefficients.get(i).twice();
         }
 
         return this;
@@ -105,8 +103,8 @@ public class PolyElement<E extends Element> extends AbstractPolyElement<E> {
     }
 
     public PolyElement<E> negate() {
-        for (int i = 0, size = coeff.size(); i < size; i++) {
-            coeff.get(i).negate();
+        for (int i = 0, size = coefficients.size(); i < size; i++) {
+            coefficients.get(i).negate();
         }
 
         return this;
@@ -119,23 +117,23 @@ public class PolyElement<E extends Element> extends AbstractPolyElement<E> {
         int i, n, n1;
         PolyElement<E> big;
 
-        n = coeff.size();
-        n1 = element.coeff.size();
+        n = coefficients.size();
+        n1 = element.coefficients.size();
         if (n > n1) {
             big = this;
             n = n1;
-            n1 = coeff.size();
+            n1 = coefficients.size();
         } else {
             big = element;
         }
 
         ensureSize(n1);
         for (i = 0; i < n; i++) {
-            coeff.get(i).add(element.coeff.get(i));
+            coefficients.get(i).add(element.coefficients.get(i));
         }
 
         for (; i < n1; i++) {
-            coeff.get(i).set(big.coeff.get(i));
+            coefficients.get(i).set(big.coefficients.get(i));
         }
 
         removeLeadingZeroes();
@@ -150,13 +148,13 @@ public class PolyElement<E extends Element> extends AbstractPolyElement<E> {
 
         PolyElement<E> big;
 
-        n = coeff.size();
-        n1 = element.coeff.size();
+        n = coefficients.size();
+        n1 = element.coefficients.size();
 
         if (n > n1) {
             big = this;
             n = n1;
-            n1 = coeff.size();
+            n1 = coefficients.size();
         } else {
             big = element;
         }
@@ -164,16 +162,16 @@ public class PolyElement<E extends Element> extends AbstractPolyElement<E> {
         ensureSize(n1);
 
         for (i = 0; i < n; i++) {
-            coeff.get(i).sub(element.coeff.get(i));
+            coefficients.get(i).sub(element.coefficients.get(i));
         }
 
         for (; i < n1; i++) {
             if (big == this) {
-                coeff.get(i).set(big.coeff.get(i));
-//                coeff.add((E) big.coeff.get(i).duplicate());
+                coefficients.get(i).set(big.coefficients.get(i));
+//                coefficients.add((E) big.coefficients.get(i).duplicate());
             } else {
-                coeff.get(i).set(big.coeff.get(i)).negate();
-//                coeff.add((E) big.coeff.get(i).duplicate().negate());
+                coefficients.get(i).set(big.coefficients.get(i)).negate();
+//                coefficients.add((E) big.coefficients.get(i).duplicate().negate());
             }
         }
         removeLeadingZeroes();
@@ -188,8 +186,8 @@ public class PolyElement<E extends Element> extends AbstractPolyElement<E> {
     public PolyElement<E> mul(Element e) {
         PolyElement<E> element = (PolyElement<E>) e;
 
-        int fcount = coeff.size();
-        int gcount = element.coeff.size();
+        int fcount = coefficients.size();
+        int gcount = element.coefficients.size();
         int i, j, n;
         PolyElement prod;
         Element e0;
@@ -209,7 +207,7 @@ public class PolyElement<E extends Element> extends AbstractPolyElement<E> {
             x.setToZero();
             for (j = 0; j <= i; j++) {
                 if (j < fcount && i - j < gcount) {
-                    e0.set(coeff.get(j)).mul(element.coeff.get(i - j));
+                    e0.set(coefficients.get(j)).mul(element.coefficients.get(i - j));
                     x.add(e0);
                 }
             }
@@ -221,16 +219,16 @@ public class PolyElement<E extends Element> extends AbstractPolyElement<E> {
     }
 
     public PolyElement<E> mul(int z) {
-        for (int i = 0, size = coeff.size(); i < size; i++) {
-            coeff.get(i).mul(z);
+        for (int i = 0, size = coefficients.size(); i < size; i++) {
+            coefficients.get(i).mul(z);
         }
 
         return this;
     }
 
     public PolyElement<E> mul(BigInteger n) {
-        for (int i = 0, size = coeff.size(); i < size; i++) {
-            coeff.get(i).mul(n);
+        for (int i = 0, size = coefficients.size(); i < size; i++) {
+            coefficients.get(i).mul(n);
         }
 
         return this;
@@ -238,8 +236,8 @@ public class PolyElement<E extends Element> extends AbstractPolyElement<E> {
 
     public int sign() {
         int res = 0;
-        for (int i = 0, size = coeff.size(); i < size; i++) {
-            res = coeff.get(i).sign();
+        for (int i = 0, size = coefficients.size(); i < size; i++) {
+            res = coefficients.get(i).sign();
             if (res != 0)
                 break;
         }
@@ -252,13 +250,13 @@ public class PolyElement<E extends Element> extends AbstractPolyElement<E> {
 
         PolyElement<E> element = (PolyElement<E>) e;
 
-        int n = this.coeff.size();
-        int n1 = element.coeff.size();
+        int n = this.coefficients.size();
+        int n1 = element.coefficients.size();
         if (n != n1)
             return false;
 
         for (int i = 0; i < n; i++) {
-            if (!coeff.get(i).isEqual(element.coeff.get(i)))
+            if (!coefficients.get(i).isEqual(element.coefficients.get(i)))
                 return false;
         }
 
@@ -266,7 +264,7 @@ public class PolyElement<E extends Element> extends AbstractPolyElement<E> {
     }
 
     public byte[] toBytes() {
-        int count = coeff.size();
+        int count = coefficients.size();
         int targetLB = field.getTargetField().getLengthInBytes();
         byte[] buffer = new byte[2 + (count * targetLB)];
 
@@ -274,7 +272,7 @@ public class PolyElement<E extends Element> extends AbstractPolyElement<E> {
         buffer[1] = (byte) ((count >>> 0) & 0xFF);
 
         for (int len = 2, i = 0; i < count; i++, len += targetLB) {
-            byte[] temp = coeff.get(i).toBytes();
+            byte[] temp = coefficients.get(i).toBytes();
             System.arraycopy(temp, 0, buffer, len, targetLB);
         }
 
@@ -293,7 +291,7 @@ public class PolyElement<E extends Element> extends AbstractPolyElement<E> {
         ensureSize(count);
         len += 2;
         for (int i = 0; i < count; i++) {
-            len += coeff.get(i).setFromBytes(source, len);
+            len += coefficients.get(i).setFromBytes(source, len);
         }
         return len - offset;
     }
@@ -303,13 +301,13 @@ public class PolyElement<E extends Element> extends AbstractPolyElement<E> {
     }
 
     public int getDegree() {
-        return coeff.size() - 1;
+        return coefficients.size() - 1;
     }
 
     public String toString() {
         StringBuffer buffer = new StringBuffer("[");
 
-        for (Element e : coeff) {
+        for (Element e : coefficients) {
             buffer.append(e).append(" ");
         }
         buffer.append("]");
@@ -324,33 +322,37 @@ public class PolyElement<E extends Element> extends AbstractPolyElement<E> {
 
 
     public void ensureSize(int size) {
-        int k = coeff.size();
+        int k = coefficients.size();
         while (k < size) {
-            coeff.add((E) field.getTargetField().newElement());
+            coefficients.add((E) field.getTargetField().newElement());
             k++;
         }
         while (k > size) {
             k--;
-            coeff.remove(coeff.size() - 1);
+            coefficients.remove(coefficients.size() - 1);
         }
     }
 
-    public void setCoefficient1(int n) {
-        if (this.coeff.size() < n + 1) {
-            ensureSize(n + 1);
-        }
-        this.coeff.get(n).setToOne();
+    public void setCoefficientToOne(int n) {
+        getCoefficient(n).setToOne();
     }
 
+
+    @Override
+    public E getCoefficient(int index) {
+        if (this.coefficients.size() < index + 1)
+            ensureSize(index + 1);
+        return super.getCoefficient(index);
+    }
 
     public void removeLeadingZeroes() {
-        int n = coeff.size() - 1;
+        int n = coefficients.size() - 1;
         while (n >= 0) {
-            Element e0 = coeff.get(n);
+            Element e0 = coefficients.get(n);
             if (!e0.isZero())
                 return;
 
-            coeff.remove(n);
+            coefficients.remove(n);
             n--;
         }
     }
@@ -360,7 +362,7 @@ public class PolyElement<E extends Element> extends AbstractPolyElement<E> {
 
         ensureSize(n);
         for (i = 0; i < n; i++) {
-            coeff.get(i).set(polyModElement.getCoefficient(i));
+            coefficients.get(i).set(polyModElement.getCoefficient(i));
         }
         removeLeadingZeroes();
 
@@ -372,32 +374,32 @@ public class PolyElement<E extends Element> extends AbstractPolyElement<E> {
 
         int i;
         for (i = 0; i < degree; i++) {
-            coeff.get(i).setToRandom();
+            coefficients.get(i).setToRandom();
         }
-        coeff.get(i).setToOne();
+        coefficients.get(i).setToOne();
 
         return this;
     }
 
     public PolyElement<E> setFromCoefficientMonic(BigInteger[] coefficients) {
-        setCoefficient1(coefficients.length - 1);
+        setCoefficientToOne(coefficients.length - 1);
         for (int i = 0; i < coefficients.length; i++) {
-            this.coeff.get(i).set(coefficients[i]);
+            this.coefficients.get(i).set(coefficients[i]);
         }
 
         return this;
     }
 
     public PolyElement<E> makeMonic() {
-        int n = this.coeff.size();
+        int n = this.coefficients.size();
         if (n == 0)
             return this;
 
-        Element e0 = coeff.get(n - 1);
+        Element e0 = coefficients.get(n - 1);
         e0.invert();
 
         for (int i = 0; i < n - 1; i++) {
-            coeff.get(i).mul(e0);
+            coefficients.get(i).mul(e0);
         }
         e0.setToOne();
 

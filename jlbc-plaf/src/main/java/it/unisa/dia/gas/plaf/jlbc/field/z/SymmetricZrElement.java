@@ -108,7 +108,7 @@ public class SymmetricZrElement extends AbstractZElement {
     }
 
     public SymmetricZrElement setToRandom() {
-        this.value = new BigInteger(order.bitLength(), field.getRandom()).mod(order);
+        this.value = BigIntegerUtils.getRandom(order, field.getRandom());
 
         return mod();
     }
@@ -286,6 +286,12 @@ public class SymmetricZrElement extends AbstractZElement {
         return isEqual((SymmetricZrElement) o);
     }
 
+    @Override
+    public Element mod(BigInteger n) {
+        this.value = this.value.mod(n);
+
+        return mod();
+    }
 
     private final SymmetricZrElement mod() {
         if (this.value.compareTo(halfOrder) > 0)

@@ -9,8 +9,6 @@ import org.bouncycastle.crypto.AsymmetricBlockCipher;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.InvalidCipherTextException;
 
-import java.math.BigInteger;
-
 /**
  * @author Angelo De Caro (angelo.decaro@gmail.com)
  */
@@ -81,7 +79,7 @@ public class BGV11LeveledEngine implements AsymmetricBlockCipher {
             this.decryptionLevel = level;
 
             // Decrypt
-            return mod(c[0].add(c[1].mul(s)), parameters.getT()).toBytes();
+            return c[0].add(c[1].mul(s)).mod(parameters.getT()).toBytes();
         } else if (param instanceof BGV11LeveledAddParameters) {
             // Add
             BGV11LeveledPublicKeyParameters pk = ((BGV11LeveledAddParameters) param).getPk();
@@ -177,14 +175,6 @@ public class BGV11LeveledEngine implements AsymmetricBlockCipher {
         }
 
         return result;
-    }
-
-    protected Element mod(Element m, BigInteger order) {
-        Vector v = (Vector) m;
-        for (int i = 0; i < v.getSize(); i++)
-            v.getAt(i).set(v.getAt(i).toBigInteger().mod(order));
-
-        return v;
     }
 
     public int getDecryptionLevel() {

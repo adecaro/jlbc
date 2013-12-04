@@ -39,9 +39,9 @@ public class MatrixElement<E extends Element> extends AbstractElement {
     }
 
     public MatrixElement<E> duplicate() {
-//        List<Element> duplicatedCoeff = new ArrayList<Element>(coeff.size());
+//        List<Element> duplicatedCoeff = new ArrayList<Element>(coefficients.size());
 //
-//        for (Element element : coeff) {
+//        for (Element element : coefficients) {
 //            duplicatedCoeff.add(element.duplicate());
 //        }
 //
@@ -57,8 +57,8 @@ public class MatrixElement<E extends Element> extends AbstractElement {
     public MatrixElement<E> set(Element e) {
 //        MatrixElement<E> element = (MatrixElement<E>) e;
 //
-//        for (int i = 0; i < coeff.size(); i++) {
-//            coeff.get(i).set(element.coeff.get(i));
+//        for (int i = 0; i < coefficients.size(); i++) {
+//            coefficients.get(i).set(element.coefficients.get(i));
 //        }
 //
 //        return this;
@@ -66,10 +66,10 @@ public class MatrixElement<E extends Element> extends AbstractElement {
     }
 
     public MatrixElement<E> set(int value) {
-//        coeff.get(0).set(value);
+//        coefficients.get(0).set(value);
 //
 //        for (int i = 1; i < field.n; i++) {
-//            coeff.get(i).setToZero();
+//            coefficients.get(i).setToZero();
 //        }
 //
 //        return this;
@@ -77,10 +77,10 @@ public class MatrixElement<E extends Element> extends AbstractElement {
     }
 
     public MatrixElement<E> set(BigInteger value) {
-//        coeff.get(0).set(value);
+//        coefficients.get(0).set(value);
 //
 //        for (int i = 1; i < field.n; i++) {
-//            coeff.get(i).setToZero();
+//            coefficients.get(i).setToZero();
 //        }
 //
 //        return this;
@@ -89,7 +89,7 @@ public class MatrixElement<E extends Element> extends AbstractElement {
 
     public MatrixElement<E> setToRandom() {
 //        for (int i = 0; i < field.n; i++) {
-//            coeff.get(i).setToRandom();
+//            coefficients.get(i).setToRandom();
 //        }
 //
 //        return this;
@@ -98,7 +98,7 @@ public class MatrixElement<E extends Element> extends AbstractElement {
 
     public MatrixElement<E> setFromHash(byte[] source, int offset, int length) {
 //        for (int i = 0; i < field.n; i++) {
-//            coeff.get(i).setFromHash(source, offset, length);
+//            coefficients.get(i).setFromHash(source, offset, length);
 //        }
 //
 //        return this;
@@ -107,7 +107,7 @@ public class MatrixElement<E extends Element> extends AbstractElement {
 
     public MatrixElement<E> setToZero() {
 //        for (int i = 0; i < field.n; i++) {
-//            coeff.get(i).setToZero();
+//            coefficients.get(i).setToZero();
 //        }
 //
 //        return this;
@@ -116,7 +116,7 @@ public class MatrixElement<E extends Element> extends AbstractElement {
 
     public boolean isZero() {
 //        for (int i = 0; i < field.n; i++) {
-//            if (!coeff.get(i).isZero())
+//            if (!coefficients.get(i).isZero())
 //                return false;
 //        }
 //        return true;
@@ -124,10 +124,10 @@ public class MatrixElement<E extends Element> extends AbstractElement {
     }
 
     public MatrixElement<E> setToOne() {
-//        coeff.get(0).setToOne();
+//        coefficients.get(0).setToOne();
 //
 //        for (int i = 1; i < field.n; i++) {
-//            coeff.get(i).setToZero();
+//            coefficients.get(i).setToZero();
 //        }
 //
 //        return this;
@@ -135,11 +135,11 @@ public class MatrixElement<E extends Element> extends AbstractElement {
     }
 
     public boolean isOne() {
-//        if (!coeff.get(0).isOne())
+//        if (!coefficients.get(0).isOne())
 //            return false;
 //
 //        for (int i = 1; i < field.n; i++) {
-//            if (!coeff.get(i).isZero())
+//            if (!coefficients.get(i).isZero())
 //                return false;
 //        }
 //
@@ -148,9 +148,9 @@ public class MatrixElement<E extends Element> extends AbstractElement {
     }
 
     public MatrixElement<E> map(Element e) {
-//        coeff.get(0).set(e);
+//        coefficients.get(0).set(e);
 //        for (int i = 1; i < field.n; i++) {
-//            coeff.get(i).setToZero();
+//            coefficients.get(i).setToZero();
 //        }
 //
 //        return this;
@@ -159,7 +159,7 @@ public class MatrixElement<E extends Element> extends AbstractElement {
 
     public MatrixElement<E> twice() {
 //        for (int i = 0; i < field.n; i++) {
-//            coeff.get(i).twice();
+//            coefficients.get(i).twice();
 //        }
 //
 //        return this;
@@ -168,7 +168,7 @@ public class MatrixElement<E extends Element> extends AbstractElement {
 
     public MatrixElement<E> square() {
 //        for (int i = 0; i < field.n; i++) {
-//            coeff.get(i).square();
+//            coefficients.get(i).square();
 //        }
 //
 //        return this;
@@ -193,7 +193,7 @@ public class MatrixElement<E extends Element> extends AbstractElement {
 //        MatrixElement<E> element = (MatrixElement<E>) e;
 //
 //        for (int i = 0; i < field.n; i++) {
-//            coeff.get(i).add(element.coeff.get(i));
+//            coefficients.get(i).add(element.coefficients.get(i));
 //        }
 //
 //        return this;
@@ -204,7 +204,7 @@ public class MatrixElement<E extends Element> extends AbstractElement {
 //        MatrixElement<E> element = (MatrixElement<E>) e;
 //
 //        for (int i = 0; i < field.n; i++) {
-//            coeff.get(i).sub(element.coeff.get(i));
+//            coefficients.get(i).sub(element.coefficients.get(i));
 //        }
 //
 //        return this;
@@ -253,7 +253,7 @@ public class MatrixElement<E extends Element> extends AbstractElement {
 
     public MatrixElement<E> mul(int z) {
 //        for (int i = 0; i < field.n; i++) {
-//            coeff.get(i).mul(z);
+//            coefficients.get(i).mul(z);
 //        }
 //
 //        return this;
@@ -262,7 +262,7 @@ public class MatrixElement<E extends Element> extends AbstractElement {
 
     public MatrixElement<E> mul(BigInteger n) {
 //        for (int i = 0; i < field.n; i++) {
-//            coeff.get(i).mul(n);
+//            coefficients.get(i).mul(n);
 //        }
 //
 //        return this;
@@ -277,7 +277,7 @@ public class MatrixElement<E extends Element> extends AbstractElement {
 //        MatrixElement<E> element = (MatrixElement<E>) e;
 //
 //        for (int i = 0; i < field.n; i++) {
-//            if (!coeff.get(i).isEqual(element.coeff.get(i)))
+//            if (!coefficients.get(i).isEqual(element.coefficients.get(i)))
 //                return false;
 //        }
 //
@@ -291,8 +291,8 @@ public class MatrixElement<E extends Element> extends AbstractElement {
 
     public int setFromBytes(byte[] source, int offset) {
 //        int len = offset;
-//        for (int i = 0, size = coeff.size(); i < size; i++) {
-//            len+=coeff.get(i).setFromBytes(source, len);
+//        for (int i = 0, size = coefficients.size(); i < size; i++) {
+//            len+=coefficients.get(i).setFromBytes(source, len);
 //        }
 //        return len-offset;
         throw new IllegalStateException("Not Implemented yet!!!");
@@ -302,8 +302,8 @@ public class MatrixElement<E extends Element> extends AbstractElement {
 //        byte[] buffer = new byte[field.getLengthInBytes()];
 //        int targetLB = field.getTargetField().getLengthInBytes();
 //
-//        for (int len = 0, i = 0, size = coeff.size(); i < size; i++, len += targetLB) {
-//            byte[] temp = coeff.get(i).toBytes();
+//        for (int len = 0, i = 0, size = coefficients.size(); i < size; i++, len += targetLB) {
+//            byte[] temp = coefficients.get(i).toBytes();
 //            System.arraycopy(temp, 0, buffer, len, targetLB);
 //        }
 //        return buffer;
@@ -317,7 +317,7 @@ public class MatrixElement<E extends Element> extends AbstractElement {
 
     public String toString() {
 //        StringBuffer buffer = new StringBuffer("[");
-//        for (Element e : coeff) {
+//        for (Element e : coefficients) {
 //            buffer.append(e).append(", ");
 //        }
 //        buffer.append("]");

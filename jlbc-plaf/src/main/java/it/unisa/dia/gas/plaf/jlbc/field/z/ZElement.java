@@ -199,4 +199,10 @@ public class ZElement extends AbstractZElement {
         return isEqual((ZElement) o);
     }
 
+    @Override
+    public Element mod(BigInteger n) {
+        this.value = this.value.mod(n);
+
+        return this;
+    }
 }

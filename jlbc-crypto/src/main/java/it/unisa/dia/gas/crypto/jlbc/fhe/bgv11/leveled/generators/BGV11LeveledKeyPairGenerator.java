@@ -60,11 +60,11 @@ public class BGV11LeveledKeyPairGenerator implements AsymmetricCipherKeyPairGene
             BigInteger q = parameters.getQAt(j);
             int N = parameters.getNAt(j);
 
-            Field Rq = new PolyModField(random, new SymmetricZrField(random, q), d);
-            Field Rt = new PolyModField(random, new ZrField(random, t), d);
+            Field Rq = new PolyModField<Field>(random, new SymmetricZrField(random, q), d);
+            Field Rt = new PolyModField<Field>(random, new ZrField(random, t), d);
 
-            Field RqN = new VectorField(random, Rq, N);
-            Field RtN = new VectorField(random, Rt, N);
+            Field RqN = new VectorField<Field>(random, Rq, N);
+            Field RtN = new VectorField<Field>(random, Rt, N);
             Sampler sampler = new GPV08FieldSampler(parameters.getStrength(), parameters.getRandom(), parameters.getSigma(), Rq);
 
             Field Zq = new ZrField(random, q);
@@ -84,7 +84,7 @@ public class BGV11LeveledKeyPairGenerator implements AsymmetricCipherKeyPairGene
             if (j != L) {
                 // Compute switch key
                 int switchN = sDoublePrime.length * lub;
-                Field RqNLogQ = new VectorField(random, Rq, switchN);
+                Field RqNLogQ = new VectorField<Field>(random, Rq, switchN);
 
                 switchAs[j] = RqNLogQ.newRandomElement();
                 switchBs[j] = switchAs[j].duplicate().mul(secrets[j]).add(sampler.sample(switchN).mul(t)).add(pps[j].powerOfToVector(sDoublePrime));

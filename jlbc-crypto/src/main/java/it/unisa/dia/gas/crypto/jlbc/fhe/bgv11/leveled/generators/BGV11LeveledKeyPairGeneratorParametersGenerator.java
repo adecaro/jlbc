@@ -17,10 +17,14 @@ public class BGV11LeveledKeyPairGeneratorParametersGenerator {
     private int sigma;
 
 
-    public BGV11LeveledKeyPairGeneratorParametersGenerator(SecureRandom random, int strength,
-                                                           int L, int d, BigInteger t, int sigma) {
+    public BGV11LeveledKeyPairGeneratorParametersGenerator(SecureRandom random,
+                                                           int k, // security parameters
+                                                           int L, // number of levels
+                                                           int d, // embedding degree
+                                                           BigInteger t, // characteristic of plaintext space
+                                                           int sigma) {
         this.random = random;
-        this.strength = strength;
+        this.strength = k;
         this.L = L;
         this.d = d;
         this.t = t;

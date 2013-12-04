@@ -146,7 +146,7 @@ public class PolyModField<F extends Field> extends AbstractFieldOver<F, PolyModE
         polymod_field_data_ptr p = field - > data;
         element_t p0;
         element_ptr pwrn;
-        element_t * coeff,*coeff1;
+        element_t * coefficients,*coeff1;
         int i, j;
         int n = p - > n;
         element_t * xpwr;
@@ -162,14 +162,14 @@ public class PolyModField<F extends Field> extends AbstractFieldOver<F, PolyModE
         element_neg(pwrn, pwrn);
 
         for (i = 1; i < n; i++) {
-            coeff = xpwr[i - 1] - > data;
+            coefficients = xpwr[i - 1] - > data;
             coeff1 = xpwr[i] - > data;
 
             element_set0(coeff1[0]);
             for (j = 1; j < n; j++) {
-                element_set(coeff1[j], coeff[j - 1]);
+                element_set(coeff1[j], coefficients[j - 1]);
             }
-            polymod_const_mul(p0, coeff[n - 1], pwrn);
+            polymod_const_mul(p0, coefficients[n - 1], pwrn);
             element_add(xpwr[i], xpwr[i], p0);
         }
         element_clear(p0);

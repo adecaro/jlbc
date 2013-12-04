@@ -2,7 +2,6 @@ package it.unisa.dia.gas.crypto.jlbc.fhe.bv11b.engine;
 
 import it.unisa.dia.gas.crypto.jlbc.fhe.bv11b.params.*;
 import it.unisa.dia.gas.jpbc.Element;
-import it.unisa.dia.gas.jpbc.Polynomial;
 import it.unisa.dia.gas.jpbc.Vector;
 import it.unisa.dia.gas.plaf.jlbc.util.ElementUtils;
 import org.bouncycastle.crypto.AsymmetricBlockCipher;
@@ -140,21 +139,10 @@ public class SHEBV11bEngine implements AsymmetricBlockCipher {
             inOff += elements[1].setFromBytes(in, inOff);
 
             // Decrypt
-            return mod(elements[0].add(elements[1].mul(sk.getSecretKey())), parameters.getT()).toBytes();
+            return elements[0].add(elements[1].mul(sk.getSecretKey())).mod(parameters.getT()).toBytes();
         }
 
         throw new IllegalStateException("Invalid parameters.");
-    }
-
-
-    public Element mod(Element m, BigInteger order) {
-        // Note that m is in Rq then
-        // it can be interpreted like a Polynomial<Element>
-        
-        for (Element element : ((Polynomial<Element>) m).getCoefficients())
-            element.set(element.toBigInteger().mod(order));
-
-        return m;
     }
 
 

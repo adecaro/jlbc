@@ -58,6 +58,10 @@ public abstract class AbstractElement implements Element {
         return mul(element.duplicate().invert());
     }
 
+    public Element mod(BigInteger n) {
+        throw new IllegalStateException("Not Implemented yet!!!");
+    }
+
     public Element mul(int z) {
         mul(field.newElement().set(z));
 

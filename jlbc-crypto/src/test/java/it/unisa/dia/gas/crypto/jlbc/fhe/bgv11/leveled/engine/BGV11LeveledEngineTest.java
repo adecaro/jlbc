@@ -31,7 +31,12 @@ public class BGV11LeveledEngineTest {
 
     @Test
     public void testBESBGV11Engine() {
-        AsymmetricCipherKeyPair keyPair = genKey(new SecureRandom(), 64, 5, 4, BigInteger.valueOf(71), 8);
+        AsymmetricCipherKeyPair keyPair = genKey(new SecureRandom(),
+                64,
+                5,
+                4,
+                BigInteger.valueOf(71),
+                8);
 
         BGV11LeveledPublicKeyParameters pk = (BGV11LeveledPublicKeyParameters) keyPair.getPublic();
         BGV11LeveledSecretKeyParameters sk = (BGV11LeveledSecretKeyParameters) keyPair.getPrivate();
