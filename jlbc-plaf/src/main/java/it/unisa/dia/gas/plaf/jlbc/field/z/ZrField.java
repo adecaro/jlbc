@@ -17,6 +17,10 @@ public class ZrField extends AbstractField<ZrElement> {
     protected BigInteger twoInverse;
 
 
+    public ZrField(long order) {
+        this(BigInteger.valueOf(order));
+    }
+
     public ZrField(BigInteger order) {
         this(new SecureRandom(), order, null);
     }

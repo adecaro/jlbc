@@ -41,4 +41,22 @@ public class VectorField<F extends Field> extends AbstractFieldOver<F, VectorEle
     public Element newElement(Element[] elements) {
         return new VectorElement(this, elements);
     }
+
+    public Element union(Element a, Element b) {
+        VectorElement va = (VectorElement) a;
+        VectorElement vb = (VectorElement) b;
+
+        VectorField f = new VectorField(random, targetField, va.getSize() + vb.getSize());
+        VectorElement r = f.newElement();
+        int counter = 0;
+
+        for (int i = 0; i < va.getSize(); i++)
+            r.getAt(counter++).set(va.getAt(i));
+
+        for (int i = 0; i < vb.getSize(); i++)
+            r.getAt(counter++).set(vb.getAt(i));
+
+        return r;
+    }
+
 }

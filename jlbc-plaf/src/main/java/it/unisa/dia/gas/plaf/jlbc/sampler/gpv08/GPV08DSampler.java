@@ -39,7 +39,6 @@ public class GPV08DSampler {
             double rhoS = Math.exp(-Math.PI * Math.pow(x.subtract(c).longValue(), 2) / sigmaSquare);
 
             if (random.nextDouble() < rhoS) {
-//                System.out.println("x = " + x.bitCount() + " - " + x );
                 return x;
             }
         }
